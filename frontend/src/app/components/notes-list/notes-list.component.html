@@ -1,0 +1,27 @@
+<main class="main">
+  <div class="content">
+    <button class="btn-new" mat-raised-button color="primary" (click)="newNote()">New Note</button>
+    <div class="main-container">
+
+      @for (note of notes; track notes) {
+      <mat-card class="card" (click)="openDialog(note)">
+        <mat-card-header>
+          <mat-card-title>{{note.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{note.content}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>{{note.tag?.name}}</button>
+        </mat-card-actions>
+      </mat-card>
+    } @empty {
+      <h1>No notes added yet!</h1>
+    }
+
+
+
+    </div>
+
+  </div>
+</main>

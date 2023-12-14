@@ -1,0 +1,27 @@
+    <div class="main-container">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-subtitle><input [(ngModel)]="note.title" required/></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="card-content">
+          <textarea [(ngModel)]="note.content" required></textarea>
+        </div>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions class="tags-content">
+          @for (tag of tags; track tags) {
+            <button mat-button (click)="setTag(tag)" [ngClass]="{'green-button': note.tag?.id === tag.id || activeTag === tag}">{{tag.name}}</button>
+          } @empty {
+            <p>No tags added yet!</p>
+          }
+        </mat-card-actions>
+        <mat-card-footer>
+        </mat-card-footer>
+      </mat-card>
+
+      <button  (click)="saveNote()" type="button" mat-raised-button color="primary" >
+        Save
+      </button>
+
+    </div>
